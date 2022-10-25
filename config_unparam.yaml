@@ -1,0 +1,30 @@
+nw2_0.25deg_N15_baseline_hmix20:
+    - dir_orig          : /glade/campaign/univ/unyu0004/NeverWorld2/nw2_0.25deg_N15_baseline_hmix20/
+    - dir               : /glade/p/univ/unyu0004/noraloose/NeverWorld2/nw2_0.25deg_N15_baseline_hmix20/
+    - dir_work          : /glade/work/noraloose/nw2_0.25deg_N15_baseline_hmix20/
+    - degree            : 0.25
+    - param             : null
+    - label             : 1/4$^\circ$ no param
+    - times             : [30002, 30502, 31002, 31502]
+    - time              : 32001
+
+nw2_0.125deg_N15_baseline_hmix20:
+    - dir_orig          : /glade/campaign/univ/unyu0004/NeverWorld2/nw2_0.125deg_N15_baseline_hmix20/
+    - dir               : /glade/p/univ/unyu0004/noraloose/NeverWorld2/nw2_0.125deg_N15_baseline_hmix20/
+    - dir_work          : /glade/work/noraloose/nw2_0.125deg_N15_baseline_hmix20/
+    - degree            : 0.125
+    - param             : null
+    - label             : 1/8$^\circ$ no param
+    - times             : [4002, 4502, 5002, 5502]
+    - time              : 6001
+
+nw2_0.03125deg_N15_baseline_hmix20:
+    - dir_orig          : /glade/campaign/univ/unyu0004/NeverWorld2/nw2_0.03125deg_N15_baseline_hmix20/
+    - dir               : /glade/campaign/univ/unyu0004/NeverWorld2/nw2_0.03125deg_N15_baseline_hmix20/
+    - dir_work          : /glade/work/noraloose/nw2_0.03125deg_N15_baseline_hmix20/
+    - degree            : 0.03125
+    - param             : null
+    - label             : 1/32$^\circ$ no param
+    - times             : [2402, 2502, 2602, 2702, 2802]
+    - time              : 2805
+

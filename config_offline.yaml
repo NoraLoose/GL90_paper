@@ -1,0 +1,36 @@
+nw2_0.03125deg_N15_baseline_hmix20_fac16:
+    - dir_work          : /glade/work/noraloose/nw2_0.03125deg_N15_baseline_hmix20/
+    - dir_scratch       : /glade/scratch/noraloose/filtered_data/nw2_0.03125deg_N15_baseline_hmix20/
+    - degree            : 0.03125
+    - filter_fac        : 16
+    - offline_degree    : 0.125
+    - param             : null
+    - label             : 1/8$^\circ$ diagnosed 
+
+nw2_0.03125deg_N15_baseline_hmix20_fac32:
+    - dir_work          : /glade/work/noraloose/nw2_0.03125deg_N15_baseline_hmix20/
+    - dir_scratch       : /glade/scratch/noraloose/filtered_data/nw2_0.03125deg_N15_baseline_hmix20/
+    - degree            : 0.03125
+    - filter_fac        : 32
+    - offline_degree    : 0.25
+    - param             : null
+    - label             : 1/4$^\circ$ diagnosed 
+
+nw2_0.03125deg_N15_baseline_hmix20_fac64:
+    - dir_work          : /glade/work/noraloose/nw2_0.03125deg_N15_baseline_hmix20/
+    - dir_scratch       : /glade/scratch/noraloose/filtered_data/nw2_0.03125deg_N15_baseline_hmix20/
+    - degree            : 0.03125
+    - filter_fac        : 64
+    - offline_degree    : 0.5
+    - param             : null
+    - label             : 1/2$^\circ$ diagnosed 
+
+nw2_0.03125deg_N15_baseline_hmix20_fac128:
+    - dir_work          : /glade/work/noraloose/nw2_0.03125deg_N15_baseline_hmix20/
+    - dir_scratch       : /glade/scratch/noraloose/filtered_data/nw2_0.03125deg_N15_baseline_hmix20/
+    - degree            : 0.03125
+    - filter_fac        : 128
+    - offline_degree    : 1
+    - param             : null
+    - label             : 1$^\circ$ diagnosed 
+
