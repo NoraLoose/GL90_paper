@@ -2,4 +2,3 @@ figures/
 movies/
 __pycache__/
 .ipynb_checkpoints/
-experiments/*/*/*.nc
