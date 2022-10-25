@@ -1,0 +1,214 @@
+stages:
+  - builds
+  - run
+  - tests
+  - cleanup
+
+variables:
+  CACHE_DIR: "/lustre/f2/scratch/oar.gfdl.ogrp-account/runner/cache/"
+
+
+# Merges MOM6 with dev/gfdl. Changes directory to test directory, if it exists.
+# - set cache location
+# - get MOM6-examples/tools/MRS scripts by cloning Gaea-stats and then MOM6-examples
+# - set working directory to MOM6-examples
+# - pull down latest of dev/gfdl (MOM6-examples might be ahead of Gaea-stats)
+before_script:
+  - echo Cache directory set to $CACHE_DIR
+  - echo -e "\e[0Ksection_start:`date +%s`:before[collapsed=true]\r\e[0KPre-script"
+  - git clone https://gitlab.gfdl.noaa.gov/ogrp/Gaea-stats-MOM6-examples.git tests
+  - cd tests && git submodule init && git submodule update
+  - cd MOM6-examples && git checkout dev/gfdl && git pull
+  - echo -e "\e[0Ksection_end:`date +%s`:before\r\e[0K"
+
+# Tests that merge with dev/gfdl works.
+merge:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - cd $CI_PROJECT_DIR
+    - git pull --no-edit https://github.com/NOAA-GFDL/MOM6.git dev/gfdl
+
+# Compiles
+gnu:repro:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - time make -f tools/MRS/Makefile MOM6_SRC=../.. pipeline-build-repro-gnu -s -j
+    - time make -f tools/MRS/Makefile MOM6_SRC=../.. pipeline-build-static-gnu -s -j
+
+gnu:ocean-only-nolibs:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile pipeline-build-gnu-oceanonly-nolibs
+
+gnu:ice-ocean-nolibs:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile pipeline-build-gnu-iceocean-nolibs
+
+intel:repro:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - time make -f tools/MRS/Makefile MOM6_SRC=../.. pipeline-build-repro-intel -s -j
+
+pgi:repro:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - time make -f tools/MRS/Makefile MOM6_SRC=../.. pipeline-build-repro-pgi -s -j
+
+gnu:debug:
+  stage: builds
+  tags:
+    - ncrc4
+  script:
+    - time make -f tools/MRS/Makefile MOM6_SRC=../.. pipeline-build-debug-gnu -s -j
+
+# Runs
+run:
+  stage: run
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-run
+
+gnu.testing:
+  stage: run
+  tags:
+    - ncrc4
+  before_script:
+    - echo -e "\e[0Ksection_start:`date +%s`:submodules[collapsed=true]\r\e[0KCloning submodules"
+    - git submodule init ; git submodule update
+    - echo -e "\e[0Ksection_end:`date +%s`:submodules\r\e[0K"
+  script:
+    - echo -e "\e[0Ksection_start:`date +%s`:compile[collapsed=true]\r\e[0KCompiling executables"
+    - cd .testing
+    - module unload PrgEnv-pgi PrgEnv-intel PrgEnv-gnu darshan ; module load PrgEnv-gnu ; module unload netcdf gcc ; module load gcc/7.3.0 cray-hdf5 cray-netcdf
+    - make work/local-env
+    - make -s -j
+    - echo -e "\e[0Ksection_end:`date +%s`:compile\r\e[0K"
+    - (echo '#!/bin/bash';echo '. ./work/local-env/bin/activate';echo 'make MPIRUN="srun -mblock --exclusive" test -s -j') > job.sh
+    - sbatch --clusters=c3,c4 --nodes=5 --time=0:05:00 --account=gfdl_o --qos=debug --job-name=MOM6.gnu.testing --output=log.$CI_PIPELINE_ID --wait job.sh && make test || cat log.$CI_PIPELINE_ID
+
+intel.testing:
+  stage: run
+  tags:
+    - ncrc4
+  before_script:
+    - echo -e "\e[0Ksection_start:`date +%s`:submodules[collapsed=true]\r\e[0KCloning submodules"
+    - git submodule init ; git submodule update
+    - echo -e "\e[0Ksection_end:`date +%s`:submodules\r\e[0K"
+  script:
+    - echo -e "\e[0Ksection_start:`date +%s`:compile[collapsed=true]\r\e[0KCompiling executables"
+    - cd .testing
+    - module unload PrgEnv-pgi PrgEnv-intel PrgEnv-gnu darshan; module load PrgEnv-intel; module unload netcdf intel; module load intel/18.0.6.288 cray-hdf5 cray-netcdf
+    - make work/local-env
+    - make -s -j
+    - echo -e "\e[0Ksection_end:`date +%s`:compile\r\e[0K"
+    - (echo '#!/bin/bash';echo '. ./work/local-env/bin/activate';echo 'make MPIRUN="srun -mblock --exclusive" test -s -j') > job.sh
+    - sbatch --clusters=c3,c4 --nodes=5 --time=0:05:00 --account=gfdl_o --qos=debug --job-name=MOM6.gnu.testing --output=log.$CI_PIPELINE_ID --wait job.sh && make test || cat log.$CI_PIPELINE_ID
+
+# Tests
+gnu:non-symmetric:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-gnu_non_symmetric
+
+gnu:symmetric:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-gnu_symmetric
+
+gnu:memory:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-gnu_memory
+
+gnu:static:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-gnu_static
+
+gnu:restart:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-gnu_restarts
+
+gnu:params:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-params_gnu_symmetric
+  allow_failure: true
+
+intel:symmetric:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-intel_symmetric
+
+intel:non-symmetric:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-intel_non_symmetric
+
+intel:memory:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-intel_memory
+
+pgi:symmetric:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-pgi_symmetric
+
+pgi:non-symmetric:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-pgi_non_symmetric
+
+pgi:memory:
+  stage: tests
+  tags:
+    - ncrc4
+  script:
+    - make -f tools/MRS/Makefile mom6-pipeline-test-pgi_memory
+
+cleanup:
+  stage: cleanup
+  tags:
+    - ncrc4
+  before_script:
+    - echo Skipping submodule update
+  script:
+    - rm $CACHE_DIR/*$CI_PIPELINE_ID.tgz
