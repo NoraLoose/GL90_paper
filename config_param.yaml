@@ -1,0 +1,325 @@
+######## 0.5 degree ###############
+
+# constant kappa
+
+nw2_0.5deg_N15_KHTH800:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.5deg/nw2_0.5deg_N15_KHTH800/
+    - degree            : 0.5
+    - param             : GM
+    - coeff             : 800
+    - label             : 1/2$^\circ$ GM 800
+    - cut_start         : [13705, 12306, 12552]
+    - cut_end           : [13792, 12408, 12599]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.5deg_N15_KHGL800_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.5deg/nw2_0.5deg_N15_KHGL800_hbbl5/
+    - degree            : 0.5
+    - param             : GL
+    - coeff             : 800
+    - label             : 1/2$^\circ$ GL 800 hbbl 5
+    - hbbl              : 5
+    - cut_start         : [4539, 5055, 14979, 15136, 15024, 15301]
+    - cut_end           : [4578, 5610, 15035, 15238, 15126, 15579]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+# horizontally varying kappa
+
+nw2_0.5deg_N15_KHTH800_vary:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.5deg/nw2_0.5deg_N15_KHTH800_vary/
+    - degree            : 0.5
+    - param             : GM vary
+    - coeff             : 800
+    - label             : 1/2$^\circ$ GM 800 $\cdot\, \psi(x,y)$
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.5deg_N15_KHGL800_vary_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.5deg/nw2_0.5deg_N15_KHGL800_vary_hbbl5/
+    - degree            : 0.5
+    - param             : GL vary
+    - coeff             : 800
+    - label             : 1/2$^\circ$ GL 800 $\cdot \, \psi(x,y)$
+    - cut_start         : [12932]
+    - cut_end           : [13008]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+# vertically varying kappa
+
+nw2_0.5deg_N15_EBT_KHTH800:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.5deg/nw2_0.5deg_N15_EBT_KHTH800/
+    - degree            : 0.5 
+    - param             : GM EBT
+    - coeff             : 800
+    - label             : $1/2^\circ$ GM 800 EBT
+    - cut_start         : [12325, 11425]
+    - cut_end           : [15739, 11485]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.5deg_N15_EBT_KHGL800_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.5deg/nw2_0.5deg_N15_EBT_KHGL800_hbbl5/
+    - degree            : 0.5
+    - param             : GL
+    - coeff             : 800
+    - label             : 1/2$^\circ$ GL EBT 800 hbbl 5
+    - hbbl              : 5
+    - cut_start         : [8684, 12932, 5098]
+    - cut_end           : [8770, 13008, 5196]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+
+######## 0.25 degree ###############
+
+# constant kappa
+
+nw2_0.25deg_N15_KHTH300:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHTH300/
+    - degree            : 0.25
+    - param             : GM
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GM 300
+    - cut_start         : [5439]
+    - cut_end           : [5482]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.25deg_N15_KHGL300_hbbl1:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300_hbbl1/
+    - degree            : 0.25
+    - param             : GL
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300 hbbl 1
+    - hbbl              : 1
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.25deg_N15_KHGL300_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300_hbbl5/
+    - degree            : 0.25
+    - param             : GL
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300 hbbl 5
+    - hbbl              : 5
+    - cut_start         : [3201, 928, 1007, 5120]
+    - cut_end           : [3266, 956, 1114, 5212]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+#nw2_0.25deg_N15_KHGL300_hbbl10:
+#    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300_hbbl10/
+#    - degree            : 0.25
+#    - param             : GL
+#    - coeff             : 300
+#    - label             : 1/4$^\circ$ GL 300 hbbl 10
+#    - hbbl              : 10
+#    - cut_start         : [0]
+#    - cut_end           : [0]
+#    - times             : [75002, 75502, 76002, 76502]
+#    - time              : 76501
+
+nw2_0.25deg_N15_KHGL300_hbbl20:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300_hbbl20/
+    - degree            : 0.25
+    - param             : GL
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300 hbbl 20
+    - hbbl              : 20
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+# no (1-b(z))
+nw2_0.25deg_N15_KHGL300:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300/
+    - degree            : 0.25
+    - param             : GL
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.25deg_N15_KHTH800:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHTH800/
+    - degree            : 0.25
+    - param             : GM
+    - coeff             : 800
+    - label             : 1/4$^\circ$ GM 800
+    - cut_start         : [0]
+    - cut_end           : [101]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.25deg_N15_KHGL800_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL800_hbbl5/
+    - degree            : 0.25
+    - param             : GL
+    - coeff             : 800
+    - label             : 1/4$^\circ$ GL 800 hbbl 5
+    - hbbl              : 5
+    - cut_start         : [2080]
+    - cut_end           : [2159]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+# horizontally varying kappa
+
+nw2_0.25deg_N15_KHTH300_vary:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHTH300_vary/
+    - degree            : 0.25
+    - param             : GM vary
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GM 300 $\cdot\, \psi(x,y)$
+    - cut_start         : [7835]
+    - cut_end           : [7886]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.25deg_N15_KHGL300_vary_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300_vary_hbbl5/
+    - degree            : 0.25
+    - param             : GL vary
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300 $\cdot\, \psi(x,y)$ hbbl 5
+    - hbbl              : 5
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+# vertically varying kappa
+
+nw2_0.25deg_N15_EBT_KHTH300:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_EBT_KHTH300/
+    - degree            : 0.25 
+    - param             : GM EBT
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GM 300 EBT
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+nw2_0.25deg_N15_EBT_KHGL300_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_EBT_KHGL300_hbbl5/
+    - degree            : 0.25
+    - param             : GL EBT
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300 EBT hbbl5
+    - cut_start         : [5514]
+    - cut_end           : [5632]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+
+#### 0.125 degree #####
+
+# constant kappa
+
+nw2_0.125deg_N15_KHTH100:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_KHTH100/
+    - degree            : 0.125
+    - param             : GM
+    - coeff             : 100
+    - label             : 1/8$^\circ$ GM 100
+    - cut_start         : [3930, 4886, 776, 3082, 1646, 2201]
+    - cut_end           : [4006, 5275, 851, 3172, 1722, 2230]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+nw2_0.125deg_N15_KHGL100_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_KHGL100_hbbl5/
+    - degree            : 0.125
+    - param             : GL
+    - coeff             : 100
+    - label             : 1/8$^\circ$ GL 100 hbbl 5
+    - hbbl              : 5
+    - cut_start         : [421, 1585, 4704, 4026, 713]
+    - cut_end           : [518, 1621, 5142, 4126, 805]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+nw2_0.125deg_N15_KHTH800:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_KHTH800/
+    - degree            : 0.125
+    - param             : GM
+    - coeff             : 800
+    - label             : 1/8$^\circ$ GM 800
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+
+nw2_0.125deg_N15_KHGL800_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_KHGL800_hbbl5/
+    - degree            : 0.125
+    - param             : GL
+    - coeff             : 800
+    - label             : 1/8$^\circ$ GL 800 hbbl 5
+    - hbbl              : 5
+    - cut_start         : [4744, 4384, 4228]
+    - cut_end           : [4804, 4760, 4302]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+# horizontally varying kappa
+
+nw2_0.125deg_N15_KHTH100_vary:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_KHTH100_vary/
+    - degree            : 0.125
+    - param             : GM vary
+    - coeff             : 100
+    - label             : 1/8$^\circ$ GM 100 $\cdot\, \psi(x,y)$
+    - cut_start         : [4595, 855]
+    - cut_end           : [5077, 894]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+nw2_0.125deg_N15_KHGL100_vary_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_KHGL100_vary_hbbl5/
+    - degree            : 0.125
+    - param             : GL vary
+    - coeff             : 100
+    - label             : 1/8$^\circ$ GL 100 $\cdot\, \psi(x,y)$ hbbl 5
+    - hbbl              : 5
+    - cut_start         : [2402, 2726]
+    - cut_end           : [2494, 2744]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+# vertically varying kappa
+
+nw2_0.125deg_N15_EBT_KHTH100:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_EBT_KHTH100/
+    - degree            : 0.125
+    - param             : GM EBT
+    - coeff             : 100
+    - label             : 1/8$^\circ$ GM 100 EBT
+    - cut_start         : [1459, 383, 2364, 3539, 3839, 4486]
+    - cut_end           : [1509, 466, 2410, 3578, 3878, 4526]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
+nw2_0.125deg_N15_EBT_KHGL100_hbbl5:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.125deg/nw2_0.125deg_N15_EBT_KHGL100_hbbl5/
+    - degree            : 0.125
+    - param             : GL EBT
+    - coeff             : 100
+    - label             : 1/8$^\circ$ GL 100 EBT hbbl5
+    - cut_start         : [436, 700, 1467, 4664, 1028, 4257]
+    - cut_end           : [568, 800, 1506, 5117, 1056, 4265]
+    - times             : [26002, 26502, 27002, 27502]
+    - time              : 27501
+
