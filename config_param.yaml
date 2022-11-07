@@ -150,6 +150,19 @@ nw2_0.25deg_N15_KHGL300:
     - times             : [75002, 75502, 76002, 76502]
     - time              : 76501
 
+# dynamic BBL
+nw2_0.25deg_N15_KHGL300_hbbldyn:
+    - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHGL300_hbbldyn/
+    - degree            : 0.25
+    - param             : GL
+    - coeff             : 300
+    - label             : 1/4$^\circ$ GL 300 b
+    - cut_start         : [0]
+    - cut_end           : [0]
+    - times             : [75002, 75502, 76002, 76502]
+    - time              : 76501
+
+
 nw2_0.25deg_N15_KHTH800:
     - dir               : /glade/u/home/noraloose/GL90_paper/experiments/0.25deg/nw2_0.25deg_N15_KHTH800/
     - degree            : 0.25
